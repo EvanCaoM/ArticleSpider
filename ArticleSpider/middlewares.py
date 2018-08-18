@@ -7,7 +7,7 @@
 
 from scrapy import signals
 from fake_useragent import UserAgent
-
+from tools.crawl_xici_ip import GetIP
 
 
 class ArticlespiderSpiderMiddleware(object):
@@ -124,3 +124,42 @@ class RandomAgentMiddleware(object):
         # request.headers.setdefault('User-Agent', random())
         random_agent = get_ua()
         request.headers.setdefault('User-Agent', get_ua())
+
+
+class RandomProxyMiddleware(object):
+    def process_request(self, request, spider):
+    # IP代理设置
+    # request.meta["proxy"] = "http://106.75.9.39:8080"
+        get_ip = GetIP()
+        request.meta["proxy"] = get_ip.get_random_ip()
+
+
+from selenium import webdriver
+from scrapy.http import HtmlResponse
+class JSPageMiddleware(object):
+
+    # def __init__(self):
+    #     self.browser = webdriver.Chrome(executable_path='G:\迅雷下载\chromedriver2_win32/chromedriver.exe')
+    #     super(JSPageMiddleware, self).__init__()
+
+    # 通过chrome请求动态网页
+    def process_request(self, request, spider):
+        if spider.name == "zhihu":
+            # browser = webdriver.Chrome(executable_path='G:\迅雷下载\chromedriver2_win32/chromedriver.exe')
+            # self.browser.get("https://www.zhihu.com/signin")
+            spider.browser.get("https://www.zhihu.com/signin")
+
+            spider.browser.find_element_by_css_selector(".Login-qrcode Button.Button--plain").click()
+            import time
+            time.sleep(10)
+            print("访问：{0}".format(request.url))
+
+            # return HtmlResponse(url=self.browser.current_url, body=self.browser.page_source, encoding="utf-8", request=request)
+            return HtmlResponse(url=spider.browser.current_url, body=spider.browser.page_source, encoding="utf-8", request=request)
+
+# # 无窗口chrome
+# from pyvirtualdisplay import Display
+# display = Display(visible=0, size=(800,600))
+# display.start()
+# browser = webdriver.Chrome()
+# browser.get()

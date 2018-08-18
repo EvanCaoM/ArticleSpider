@@ -8,6 +8,9 @@ from selenium import webdriver
 from scrapy.loader import ItemLoader
 from ArticleSpider.items import ZhihuQuestionItem,ZhihuAnswerItem
 from settings import user_agent_list
+from selenium import webdriver
+from scrapy.xlib.pydispatch import dispatcher
+from scrapy import signals
 try:
     import urllparse as parse
 except:
@@ -34,6 +37,22 @@ class ZhihuSpider(scrapy.Spider):
 
         # Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
     }
+
+    # 重写settings.py
+    custom_settings = {
+        "COOKIES_ENABLED": True
+    }
+
+    def __init__(self):
+        self.browser = webdriver.Chrome(executable_path='G:\迅雷下载\chromedriver2_win32/chromedriver.exe')
+        super(ZhihuSpider, self).__init__()
+        # 信号
+        dispatcher.connect(self.spider_closed, signals.spider_closed)
+
+    def spider_closed(self, spider):
+        # 当爬虫退出的时候关闭browser
+        print("spider closed")
+        self.browser.quit()
 
     def parse(self, response):
         """
@@ -106,7 +125,6 @@ class ZhihuSpider(scrapy.Spider):
         yield scrapy.Request(self.start_answer_url.format(question_id, 20, 0), headers=self.headers, callback=self.parse_answer)
         yield question_item
 
-
     def parse_answer(self, response):
         # 处理question的answer
         ans_json = json.loads(response.text)
@@ -133,14 +151,11 @@ class ZhihuSpider(scrapy.Spider):
         if not is_end:
             yield scrapy.Request(next_url, headers=self.headers, callback=self.parse_answer)
 
-
-
+    """
     def start_requests(self):
         return [scrapy.Request('https://www.zhihu.com/#signin', headers=self.headers, callback = self.login)]
         # return [scrapy.Request(url=self.start_urls[0], dont_filter=True, cookies=cookie_dict)]
-
-
-
+    """
     def login(self, response):
         """
         response_text = response.text
