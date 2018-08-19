@@ -27,7 +27,7 @@ def add_jobbole(value):
 
 def date_convert(value):
     try:
-        create_date = datetime.datetime.strptime(create_date, "%Y/%m/%d").date()
+        create_date = datetime.datetime.strptime(value, "%Y/%m/%d").date()
     except Exception as e:
         create_date = datetime.datetime.now().date()
 
@@ -104,7 +104,7 @@ class JobBoleArticleItem(scrapy.Item):
     )
     content = scrapy.Field()
 
-    def get_sql(self):
+    def get_insert_sql(self):
         insert_sql = """
             insert into jobbole_article(title, url, create_date, fav_nums)
             values (%s, %s, %s, %s)

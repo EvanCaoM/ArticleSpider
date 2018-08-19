@@ -53,11 +53,11 @@ COOKIES_ENABLED = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-'ArticleSpider.middlewares.JSPageMiddleware': 1,
-   # 'ArticleSpider.middlewares.RandomAgentMiddleware': 543,
-   #  'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None
-}
+# DOWNLOADER_MIDDLEWARES = {
+# 'ArticleSpider.middlewares.JSPageMiddleware': 1,
+#    # 'ArticleSpider.middlewares.RandomAgentMiddleware': 543,
+#    #  'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
