@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1326a94-0f1a-44b8-b2a6-308a69816b2f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/ArticleSpider/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/ArticleSpider/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArticleSpider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ArticleSpider/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArticleSpider/spiders/jobbole.py" beforeDir="false" afterPath="$PROJECT_DIR$/ArticleSpider/spiders/jobbole.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ArticleSpider/job_info/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,24 +29,19 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArticleSpider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1039">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-start-column="2" selection-end-line="59" selection-end-column="3" />
+            <state relative-caret-position="1265">
+              <caret line="55" selection-start-line="55" selection-start-column="2" selection-end-line="59" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobbole.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="jobbole.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ArticleSpider/spiders/jobbole.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-512">
-              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+            <state relative-caret-position="46">
+              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
               <folding>
-                <element signature="e#24#37#0" expanded="true" />
-                <element signature="e#603#694#0" />
                 <element signature="e#761#830#0" />
-                <element signature="e#475#578#1" />
-                <element signature="e#1438#2829#1" />
-                <element signature="e#2838#4630#1" />
               </folding>
             </state>
           </provider>
@@ -57,7 +50,7 @@
       <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArticleSpider/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
+            <state relative-caret-position="1196">
               <caret line="80" column="48" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="48" />
               <folding>
                 <element signature="n#!!doc" />
@@ -92,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -100,34 +93,22 @@
       <file leaf-file-name="items.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArticleSpider/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
+            <state relative-caret-position="3933">
               <caret line="187" selection-start-line="187" selection-end-line="187" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#498#579#0" />
                 <element signature="e#609#629#0" />
-                <element signature="e#661#850#0" />
-                <element signature="e#878#1017#0" />
-                <element signature="e#1056#1140#0" />
-                <element signature="e#1172#1184#0" />
-                <element signature="e#1217#1262#0" />
-                <element signature="e#1296#1432#0" />
-                <element signature="e#1476#1534#0" />
-                <element signature="e#1597#2898#0" />
-                <element signature="e#2943#4490#0" />
-                <element signature="e#4533#5826#0" />
-                <element signature="e#5871#5929#0" />
-                <element signature="e#5969#7676#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zhihu.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="zhihu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArticleSpider/spiders/zhihu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -195,7 +176,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="40" />
-    <option name="width" value="1089" />
+    <option name="width" value="923" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -204,7 +185,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,23 +201,18 @@
               <item name="ArticleSpider" type="b2602c69:ProjectViewProjectNode" />
               <item name="ArticleSpider" type="462c0819:PsiDirectoryNode" />
               <item name="ArticleSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArticleSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArticleSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="ArticleSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="job_info" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ScrapyRedisTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -410,7 +385,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="40" width="1089" height="735" extended-state="0" />
+    <frame x="-7" y="40" width="923" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.31587562" />
@@ -420,10 +395,10 @@
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3089701" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49940827" visible="true" weight="0.28474247" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49940827" visible="true" weight="0.18308227" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.06316812" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.07531866" />
       <window_info id="Structure" order="1" sideWeight="0.5005917" side_tool="true" weight="0.2902098" />
       <window_info id="Favorites" order="2" sideWeight="0.5005917" side_tool="true" weight="0.2902098" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23421927" />
@@ -899,29 +874,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ArticleSpider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1039">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-start-column="2" selection-end-line="59" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArticleSpider/spiders/jobbole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-512">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-            <element signature="e#603#694#0" />
-            <element signature="e#761#830#0" />
-            <element signature="e#475#578#1" />
-            <element signature="e#1438#2829#1" />
-            <element signature="e#2838#4630#1" />
-          </folding>
+        <state relative-caret-position="1265">
+          <caret line="55" selection-start-line="55" selection-start-column="2" selection-end-line="59" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArticleSpider/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
+        <state relative-caret-position="1196">
           <caret line="80" column="48" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="48" />
           <folding>
             <element signature="n#!!doc" />
@@ -952,30 +912,18 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArticleSpider/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
+        <state relative-caret-position="3933">
           <caret line="187" selection-start-line="187" selection-end-line="187" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#498#579#0" />
             <element signature="e#609#629#0" />
-            <element signature="e#661#850#0" />
-            <element signature="e#878#1017#0" />
-            <element signature="e#1056#1140#0" />
-            <element signature="e#1172#1184#0" />
-            <element signature="e#1217#1262#0" />
-            <element signature="e#1296#1432#0" />
-            <element signature="e#1476#1534#0" />
-            <element signature="e#1597#2898#0" />
-            <element signature="e#2943#4490#0" />
-            <element signature="e#4533#5826#0" />
-            <element signature="e#5871#5929#0" />
-            <element signature="e#5969#7676#0" />
           </folding>
         </state>
       </provider>
@@ -983,7 +931,17 @@
     <entry file="file://$PROJECT_DIR$/ArticleSpider/spiders/zhihu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArticleSpider/spiders/jobbole.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding>
+            <element signature="e#761#830#0" />
+          </folding>
         </state>
       </provider>
     </entry>
