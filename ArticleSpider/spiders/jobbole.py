@@ -135,7 +135,9 @@ class JobboleSpider(scrapy.Spider):
         item_loader.add_css("create_date", "p.entry-meta-hide-on-mobile::text")
         item_loader.add_value("front_image_url", [front_image_url])
         item_loader.add_css("praise_nums", ".vote-post-up h10::text")
-        item_loader.add_css("comment_nums", "a[href='#article-comment']::text")
+        # item_loader.add_css("comment_nums", "a[href='#article-comment']::text")
+        item_loader.add_css("comment_nums", "a[href='#article-comment'] span::text")
+
         item_loader.add_css("fav_nums", ".bookmark-btn::text")
         item_loader.add_css("tags", ".entry-meta-hide-on-mobile a::text")
         item_loader.add_css("content", "div.entry")

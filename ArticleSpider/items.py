@@ -13,7 +13,12 @@ from scrapy.loader.processors import MapCompose, TakeFirst, Join
 from ArticleSpider.utills.common import extract_num
 from ArticleSpider.settings import SQL_DATE_FORMAT,SQL_DATETIME_FORMAT
 from w3lib.html import remove_tags
+from models.es_types import ArticleType
 
+from elasticsearch_dsl.connections import connections
+es = connections.create_connection(ArticleType._get_using)
+from elasticsearch_dsl import analyzer, Index, tokenizer
+from elasticsearch_dsl.analysis import CustomAnalyzer as _CustomAnalyzer
 
 
 class ArticlespiderItem(scrapy.Item):
@@ -24,7 +29,6 @@ class ArticlespiderItem(scrapy.Item):
 def add_jobbole(value):
     return value+"-Evan"
 
-
 def date_convert(value):
     try:
         create_date = datetime.datetime.strptime(value, "%Y/%m/%d").date()
@@ -32,7 +36,6 @@ def date_convert(value):
         create_date = datetime.datetime.now().date()
 
     return create_date
-
 
 def get_nums(value):
     match_re = re.match(".*?(\d+).*", value)
@@ -43,7 +46,6 @@ def get_nums(value):
 
     return nums
 
-
 def remove_comment_tags(value):
     # 去掉tag中提取的评论
     if "评论" in value:
@@ -51,20 +53,53 @@ def remove_comment_tags(value):
     else:
         return value
 
-
 def return_value(value):
     return value
-
 
 def remove_splash(value):
     # 去掉工作城市的斜线
     return value.replace("/", "")
 
-
 def handle_jobaddr(value):
     addr_list = value.split("\n")
     addr_list = [item.strip() for item in addr_list if item.strip()!="查看地图"]
     return "".join(addr_list)
+
+def gen_suggests(index, info_tuple):
+    # 根据字符串生成搜索建议数组
+    used_words = set()
+    suggests = []
+    for text, weight in info_tuple:
+        if text:
+            # 调用es的analyze接口分析字符串
+            ik_analyzer = CustomAnalyzer("ik_max_word", filter=["lowercase"])
+            my_analyzer = analyzer('my_analyzer',
+                                   tokenizer=tokenizer('trigram', 'nGram', min_gram=3, max_gram=3),
+                                   filter=['lowercase']
+                                   )
+            i = Index(index)
+            i._analysis = ik_analyzer
+            # i.analyzer(analyzer=ik_analyzer)
+
+            # i.analyzer.default.type: "ik_max_word"
+            a = i.analyze( params={'filter':["lowercase"]}, body=text)
+
+            # i.analyzer(analyzer = "ik_max_word")
+
+            words = es.indices.analyze(index=index, params={'filter':["lowercase"]}, body=text)
+            anylyzed_words = set([r["token"] for r in words["tokens"] if len(r["token"])>1])
+            new_words = anylyzed_words - used_words
+        else:
+            new_words = set()
+
+        if new_words:
+            suggests.append({"input":list(new_words), "weight":weight})
+
+    return suggests
+
+class CustomAnalyzer(_CustomAnalyzer):
+    def get_analysis_definition(self):
+        return{}
 
 
 class ArticleItemLoader(ItemLoader):
@@ -112,6 +147,27 @@ class JobBoleArticleItem(scrapy.Item):
         """
         params = (self["title"], self["url"], self["create_date"], self["fav_nums"])
         return insert_sql,params
+
+    def save_to_es(self):
+        # 将item转换为es的数据
+        article = ArticleType()
+        article.title = self['title']
+        article.create_date = self['create_date']
+        article.content = remove_tags(self['content'])
+        article.front_image_url = self['front_image_url']
+        if "front_image_path" in self:
+            article.front_image_path = self['front_image_path']
+        article.praise_nums = self['praise_nums']
+        article.fav_nums = self['fav_nums']
+        article.comment_nums = self['comment_nums']
+        article.url = self['url']
+        article.tags = self['tags']
+        article.meta.id = self['url_object_id']
+
+        # article.suggest = [{"input":[],"weight":2}]
+        article.suggest = gen_suggests(ArticleType._index._name, ((article.title,10),(article.tags,7)))
+        article.save()
+        return
 
 
 class ZhihuQuestionItem(scrapy.Item):
@@ -237,3 +293,5 @@ class LagouJobItem(scrapy.Item):
         )
 
         return insert_sql,params
+
+
